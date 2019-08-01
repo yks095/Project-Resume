@@ -4,16 +4,34 @@
     <title>resume</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/main.css"/>
-
 </head>
 <body>
 <div class="head">
     <div id="picture">
 
-        <img src="/images/face.jpg" style="width: 250px; height: 250px; vertical-align: middle" />
+        <img src="/images/face.jpg" style="width: 250px; height: 250px; vertical-align: middle"/>
 
     </div>
-    <div id="name">이름</div>
+    <div id="info">
+
+        <div id="name">KiSeok Yang</div>
+        <div id="address"><a href="https://github.com/yks095">Github</a></div>
+
+    </div>
 </div>
+
+<div class="content">
+
+    <div id="introduction">
+        <button id="introductionButton"><a href="/introduction">1. 자기소개서</a></button>
+    </div>
+
+    <div id="project">
+        <button id="projectButton"><a href="/project">2. 프로젝트 경험</a></button>
+    </div>
+
+</div>
+<script th:src="@{/javascript/jquery.min.js}"></script>
+<script th:src="@{/javascript/main.js}"></script>
 </body>
 </html>

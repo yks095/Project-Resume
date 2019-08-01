@@ -42,4 +42,9 @@ public class Projects implements Serializable {
         this.description = description;
         this.registeredDate = registeredDate;
     }
+
+    public void setRegisteredDateNow()  {
+        this.registeredDate = LocalDateTime.now();
+    }
+
 }
