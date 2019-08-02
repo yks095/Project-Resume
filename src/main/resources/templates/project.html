@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <title>Experienced Projects</title>
     <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/project.css"/>
 </head>
 <body>
 <div class="head">
     <div id="picture">
-
-        <img src="/images/face.jpg" style="width: 250px; height: 250px; vertical-align: middle" />
-
+        <img id="faceImage" src="/images/face.jpg"/>
     </div>
     <div id="info">
-
         <div id="name">KiSeok Yang</div>
         <div id="address"><a href="https://github.com/yks095">Github</a></div>
-
     </div>
 </div>
 <div class="project">
     <button id="register"><a href="/project/register">추가</a></button>
 
-    <div id="show_project" th:each="projects : ${projects_list}" style="background-color: white; border: solid; border-color: #269abc; border-radius: 8px; padding: 40px 40px 30px 10px; margin-bottom: 30px;">
+    <div id="show_project" th:each="projects : ${projects_list}">
         <h1 style="margin-left: 50px" id="projectName" th:text="${projects.name}" data-th-value="${projects.idx}" ></h1>
+        <h3 style="height: 33%;" th:text="${projects.registeredDate} ? ${#temporals.format(projects.registeredDate,'yyyy-MM-dd HH:mm')} : ${projects.registeredDate}"></h3>
+        <button type="button" class="deleteButton" th:value="${projects.idx}"><img class="deleteImage" src="/images/delete.png"></button>
+        <button type="button" class="lookButton" th:value="${projects.idx}"><img class="lookImage" src="/images/look.png"></button>
     </div>
 </div>
 </div>

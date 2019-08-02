@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Experienced Projects</title>
+</head>
+<body>
+
+<div class="showProject" th:each="projects : ${show_project}">
+
+    <div>
+        프로젝트 명 : <h3 id="show_name" type="text" name="name" class="text-field" th:text="${projects.name}" th:value="${projects.idx}" contenteditable="true"/>
+        프로젝트 기간 : <h3 id="show_period" type="text" name="period" class="text-field" th:text="${projects.period}" th:value="${projects.idx}" contenteditable="true"/>
+        프로젝트 인원 : <h3 id="show_persons" type="text" name="persons" class="text-field" th:text="${projects.persons}" th:value="${projects.idx}" contenteditable="true"/>
+        프로젝트 설명 : <h3 id="show_description" type="text" name="description" class="text-field" th:text="${projects.description}" th:value="${projects.idx}" contenteditable="true"/>
+    </div>
+
+    <button class="modifyButton" th:value="${projects.idx}">수 정</button>
+    <button class="completeButton" th:value="${projects.idx}">O K</button>
+
+</div>
+<script th:src="@{/javascript/jquery.min.js}"></script>
+<script th:src="@{/javascript/project.js}"></script>
+</body>
+</html>

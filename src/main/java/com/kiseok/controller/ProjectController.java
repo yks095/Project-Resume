@@ -8,10 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/project")
@@ -37,6 +34,12 @@ public class ProjectController {
         return "/registerProject";
     }
 
+    @GetMapping("/look//{idx}")
+    public String showProject(Model model, @PathVariable("idx")Long idx)  {
+        model.addAttribute("show_project", projectService.findProject(idx));
+        return "/showProject";
+    }
+
     @PostMapping("/save")
     public ResponseEntity<?> postProjects(@RequestBody Projects projects) {
 
@@ -44,5 +47,26 @@ public class ProjectController {
         projectRepository.save(projects);
         System.out.println("3");
         return new ResponseEntity<>("{}", HttpStatus.CREATED);
+    }
+
+    @PutMapping("/modify/{idx}")
+    public ResponseEntity<?> putProjects(@RequestBody Projects projects, @PathVariable("idx")Long idx) {
+
+        Projects modifiedProject = projectRepository.getOne(idx);
+        modifiedProject.setName(projects.getName());
+        modifiedProject.setPeriod(projects.getPeriod());
+        modifiedProject.setPersons(projects.getPersons());
+        modifiedProject.setDescription(projects.getDescription());
+        modifiedProject.setRegisteredDateNow();
+
+        projectRepository.save(modifiedProject);
+
+        return new ResponseEntity<>("{}", HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{idx}")
+    public ResponseEntity<?> deleteProjects(@PathVariable("idx")Long idx)  {
+        projectRepository.deleteById(idx);
+        return new ResponseEntity<>("{}", HttpStatus.OK);
     }
 }

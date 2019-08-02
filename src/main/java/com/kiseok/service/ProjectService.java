@@ -14,8 +14,11 @@ public class ProjectService {
     ProjectRepository projectRepository;
 
     public List<Projects> findProjectList()   {
-
         return projectRepository.findAll();
+    }
+
+    public Projects findProject(Long idx)   {
+        return projectRepository.getOne(idx);
     }
 
 }
