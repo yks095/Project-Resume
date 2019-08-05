@@ -21,4 +21,20 @@ public class ProjectService {
         return projectRepository.getOne(idx);
     }
 
+    public Projects modifyProject(Long idx, Projects projects)  {
+        Projects modifiedProject = projectRepository.getOne(idx);
+
+        modifiedProject.setName(projects.getName());
+        modifiedProject.setPeriod(projects.getPeriod());
+        modifiedProject.setPersons(projects.getPersons());
+        modifiedProject.setDescription(projects.getDescription());
+        modifiedProject.setRegisteredDateNow();
+
+        return modifiedProject;
+    }
+
+    public void saveModifiedProject(Projects modifiedProject)   {
+        projectRepository.save(modifiedProject);
+    }
+
 }

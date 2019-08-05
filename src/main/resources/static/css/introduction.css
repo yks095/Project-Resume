@@ -1,0 +1,40 @@
+#show_introduction   {
+    background-color: white;
+    border: solid;
+    border-color: #269abc;
+    border-radius: 8px;
+    padding: 40px 40px 30px 10px;
+    margin-bottom: 30px;
+}
+
+.deleteButton   {
+    outline: none;
+    border: 0px;
+    background-color: white;
+    float: right;
+}
+
+.deleteImage    {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+}
+
+.lookButton   {
+    outline: none;
+    border: 0px;
+    background-color: white;
+    float: right;
+}
+
+.lookImage    {
+    width: 25px;
+    height: 25px;
+    background-color: white;
+}
+
+.text-field   {
+    width: 800px;
+    height: 200px;
+}
+

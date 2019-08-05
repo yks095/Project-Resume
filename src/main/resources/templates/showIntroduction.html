@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Instruction</title>
+    <link rel="stylesheet" href="/css/introduction.css"/>
+
+</head>
+<body>
+
+<br/><br/><br/>
+
+<div class="showIntroduction" th:each="introduction : ${show_introduction}">
+
+    <div>
+        <div>
+            <label>자기소개서 제목</label>
+            <input id="show_title" type="text" name="title" th:value="${introduction.title}" contenteditable="true"/>
+        </div>
+
+        <div>
+            <label>성장 배경</label>
+            <input id="show_growth" type="text" name="growth" th:value="${introduction.growth}" contenteditable="true"/>
+            <span id="growth_counter2"></span>
+        </div>
+
+        <div>
+            <label>지원 동기</label>
+            <input id="show_reason" type="text" name="reason" th:value="${introduction.reason}" contenteditable="true"/>
+            <span id="reason_counter2"></span>
+        </div>
+
+        <div>
+            <label>강점</label>
+            <input id="show_strength" type="text" name="strength" th:value="${introduction.strength}" contenteditable="true"/>
+            <span id="strength_counter2"></span>
+        </div>
+
+        <div>
+            <label>약점</label>
+            <input id="show_weakness" type="text" name="weakness" th:value="${introduction.weakness}" contenteditable="true"/>
+            <span id="weakness_counter2"></span>
+        </div>
+
+        <div>
+            <label>입사 후 포부</label>
+            <input id="show_aspiration" type="text" name="aspiration" th:value="${introduction.aspiration}"  contenteditable="true"/>
+            <span id="aspiration_counter2"></span>
+        </div>
+
+    </div>
+
+    <div>
+        <button type="button" class="modifyButton" th:value="${introduction.idx}">수 정</button>
+        <button type="button" class="completeButton" th:value="${introduction.idx}">O K</button>
+    </div>
+
+
+</div>
+<script th:src="@{/javascript/jquery.min.js}"></script>
+<script th:src="@{/javascript/introduction.js}"></script>
+<script th:src="@{/javascript/counter.js}"></script>
+</body>
+</html>

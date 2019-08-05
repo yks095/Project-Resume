@@ -20,7 +20,7 @@
     <button id="register"><a href="/project/register">추가</a></button>
 
     <div id="show_project" th:each="projects : ${projects_list}">
-        <h1 style="margin-left: 50px" id="projectName" th:text="${projects.name}" data-th-value="${projects.idx}" ></h1>
+        <h1 style="margin-left: 50px" id="projectName" th:text="${projects.name}" th:value="${projects.idx}" ></h1>
         <h3 style="height: 33%;" th:text="${projects.registeredDate} ? ${#temporals.format(projects.registeredDate,'yyyy-MM-dd HH:mm')} : ${projects.registeredDate}"></h3>
         <button type="button" class="deleteButton" th:value="${projects.idx}"><img class="deleteImage" src="/images/delete.png"></button>
         <button type="button" class="lookButton" th:value="${projects.idx}"><img class="lookImage" src="/images/look.png"></button>

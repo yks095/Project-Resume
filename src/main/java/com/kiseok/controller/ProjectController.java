@@ -34,7 +34,7 @@ public class ProjectController {
         return "/registerProject";
     }
 
-    @GetMapping("/look//{idx}")
+    @GetMapping("/look/{idx}")
     public String showProject(Model model, @PathVariable("idx")Long idx)  {
         model.addAttribute("show_project", projectService.findProject(idx));
         return "/showProject";
@@ -45,27 +45,21 @@ public class ProjectController {
 
         projects.setRegisteredDateNow();
         projectRepository.save(projects);
-        System.out.println("3");
+
         return new ResponseEntity<>("{}", HttpStatus.CREATED);
     }
 
     @PutMapping("/modify/{idx}")
-    public ResponseEntity<?> putProjects(@RequestBody Projects projects, @PathVariable("idx")Long idx) {
+    public ResponseEntity<?> putProjects(@PathVariable("idx") Long idx, @RequestBody Projects projects) {
 
-        Projects modifiedProject = projectRepository.getOne(idx);
-        modifiedProject.setName(projects.getName());
-        modifiedProject.setPeriod(projects.getPeriod());
-        modifiedProject.setPersons(projects.getPersons());
-        modifiedProject.setDescription(projects.getDescription());
-        modifiedProject.setRegisteredDateNow();
-
-        projectRepository.save(modifiedProject);
+        Projects modifiedProject = projectService.modifyProject(idx, projects);
+        projectService.saveModifiedProject(modifiedProject);
 
         return new ResponseEntity<>("{}", HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{idx}")
-    public ResponseEntity<?> deleteProjects(@PathVariable("idx")Long idx)  {
+    public ResponseEntity<?> deleteProjects(@PathVariable("idx") Long idx)  {
         projectRepository.deleteById(idx);
         return new ResponseEntity<>("{}", HttpStatus.OK);
     }

@@ -6,7 +6,6 @@ $('#save_project').click(function () {
         persons: $('#project_persons').val(),
         description: $('#project_description').val()
     });
-
     $.ajax({
         url: "http://localhost:8080/project/save",
         type: "POST",
@@ -23,7 +22,6 @@ $('#save_project').click(function () {
 });
 
 $('.deleteButton').click(function () {
-    console.log("프로젝트 삭제");
     $.ajax({
         url: "http://localhost:8080/project/delete/" + $(this).val(),
         type: "DELETE",
@@ -47,10 +45,10 @@ $('.lookButton').click(function () {
 $('.modifyButton').click(function () {
 
     var jsonData = JSON.stringify({
-        name: $('#show_name').val(),
-        period: $('#show_period').val(),
-        persons: $('#show_persons').val(),
-        description: $('#show_description').val()
+        name: $(this).parent().parent().find('.show_name').text(),
+        period: $(this).parent().parent().find('.show_period').text(),
+        persons: $(this).parent().parent().find('.show_persons').text(),
+        description: $(this).parent().parent().find('.show_description').text()
     });
 
     $.ajax({

@@ -6,17 +6,22 @@
 </head>
 <body>
 
-<div class="showProject" th:each="projects : ${show_project}">
+<br/><br/><br/>
+
+<div class="showProject" th:each="project : ${show_project}">
 
     <div>
-        프로젝트 명 : <h3 id="show_name" type="text" name="name" class="text-field" th:text="${projects.name}" th:value="${projects.idx}" contenteditable="true"/>
-        프로젝트 기간 : <h3 id="show_period" type="text" name="period" class="text-field" th:text="${projects.period}" th:value="${projects.idx}" contenteditable="true"/>
-        프로젝트 인원 : <h3 id="show_persons" type="text" name="persons" class="text-field" th:text="${projects.persons}" th:value="${projects.idx}" contenteditable="true"/>
-        프로젝트 설명 : <h3 id="show_description" type="text" name="description" class="text-field" th:text="${projects.description}" th:value="${projects.idx}" contenteditable="true"/>
+        <h3 class="show_name" type="text" name="name" th:text="${project.name}" th:value="${project.idx}" contenteditable="true"/>
+        <h3 class="show_period" type="text" name="period" th:text="${project.period}" th:value="${project.idx}" contenteditable="true"/>
+        <h3 class="show_persons" type="text" name="persons" th:text="${project.persons}" th:value="${project.idx}" contenteditable="true"/>
+        <h3 class="show_description" type="text" name="description" th:text="${project.description}" th:value="${project.idx}" contenteditable="true"/>
     </div>
 
-    <button class="modifyButton" th:value="${projects.idx}">수 정</button>
-    <button class="completeButton" th:value="${projects.idx}">O K</button>
+    <div>
+        <button type="button" class="modifyButton" th:value="${project.idx}">수 정</button>
+        <button type="button" class="completeButton" th:value="${project.idx}">O K</button>
+    </div>
+
 
 </div>
 <script th:src="@{/javascript/jquery.min.js}"></script>
