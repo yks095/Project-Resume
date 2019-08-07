@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Experienced Projects</title>
+    <link rel="stylesheet" href="/css/project.css"/>
+</head>
+<body>
+
+<br/><br/><br/>
+
+<div class="showProject" th:each="project : ${show_project}">
+
+    <div>
+        <div style="margin-left: 150px">
+            <label>프로젝트 이름</label>
+            <input id="show_name" type="text" th:value="${project.name}" name="name" style="width: 400px; height: 50px;" contenteditable="true"/>
+        </div>
+        <div>
+            <label>프로젝트 기간</label>
+            <input id="show_period" type="text" th:value="${project.period}" name="period" class="text-field" contenteditable="true"/>
+        </div>
+
+        <div>
+            <label>프로젝트 참여 인원</label>
+            <input id="show_persons" type="text" th:value="${project.persons}" name="persons" class="text-field" contenteditable="true"/>
+        </div>
+
+        <div>
+            <label>프로젝트 설명</label>
+            <input id="show_description" type="text" th:value="${project.description}" name="description" class="text-field" contenteditable="true"/>
+        </div>
+
+    </div>
+
+    <button type="button" class="modifyButton" th:value="${project.idx}">수 정</button>
+    <button type="button" class="completeButton" th:value="${project.idx}">O K</button>
+
+
+</div>
+<script th:src="@{/javascript/jquery.min.js}"></script>
+<script th:src="@{/javascript/project.js}"></script>
+</body>
+</html>

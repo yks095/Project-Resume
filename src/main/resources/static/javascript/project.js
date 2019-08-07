@@ -45,10 +45,10 @@ $('.lookButton').click(function () {
 $('.modifyButton').click(function () {
 
     var jsonData = JSON.stringify({
-        name: $(this).parent().parent().find('.show_name').text(),
-        period: $(this).parent().parent().find('.show_period').text(),
-        persons: $(this).parent().parent().find('.show_persons').text(),
-        description: $(this).parent().parent().find('.show_description').text()
+        name: $(this).parent().parent().find('#show_name').val(),
+        period: $(this).parent().parent().find('#show_period').val(),
+        persons: $(this).parent().parent().find('#show_persons').val(),
+        description: $(this).parent().parent().find('#show_description').val()
     });
 
     $.ajax({

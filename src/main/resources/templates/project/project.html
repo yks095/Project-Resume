@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Experienced Projects</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/project.css"/>
+</head>
+<body>
+<div class="head">
+    <div id="picture">
+        <img id="faceImage" src="/images/face.jpg"/>
+    </div>
+    <div id="info">
+        <div id="name">KiSeok Yang</div>
+        <div id="address"><a href="https://github.com/yks095">Github</a></div>
+    </div>
+</div>
+<div class="project">
+    <button id="register"><a href="/project/register">추가</a></button>
+
+    <div id="show_project" th:each="projects : ${projects_list}">
+        <h1 style="margin-left: 50px" id="projectName" th:text="${projects.name}" th:value="${projects.idx}" ></h1>
+        <h3 style="height: 33%;" th:text="${projects.registeredDate} ? ${#temporals.format(projects.registeredDate,'yyyy-MM-dd HH:mm')} : ${projects.registeredDate}"></h3>
+        <button type="button" class="deleteButton" th:value="${projects.idx}"><img class="deleteImage" src="/images/delete.png"></button>
+        <button type="button" class="lookButton" th:value="${projects.idx}"><img class="lookImage" src="/images/look.png"></button>
+    </div>
+</div>
+</div>
+
+<script th:src="@{/javascript/jquery.min.js}"></script>
+<script th:src="@{/javascript/project.js}"></script>
+</body>
+</html>

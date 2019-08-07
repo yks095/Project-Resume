@@ -24,18 +24,18 @@ public class IntroductionController {
     public String introductionView(Model model) {
         model.addAttribute("introductions_list", introductionService.findIntroductionList());
 
-        return "/introduction";
+        return "/introduction/introduction";
     }
 
     @GetMapping("/register")
     public String introductionRegisterView() {
-        return "/registerIntroduction";
+        return "/introduction/registerIntroduction";
     }
 
     @GetMapping("/look/{idx}")
     public String showIntroduction(Model model, @PathVariable("idx")Long idx)  {
         model.addAttribute("show_introduction", introductionService.findIntroduction(idx));
-        return "/showIntroduction";
+        return "/introduction/showIntroduction";
     }
 
     @PostMapping("/save")

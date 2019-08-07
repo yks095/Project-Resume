@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register User</title>
+    <link rel="stylesheet" href="/css/user.css"/>
+
+</head>
+<body>
+
+<div class="registerUser">
+
+    <div>
+        <div style="margin-left: 150px">
+            <label>ID</label>
+            <input id="new_id" type="text" name="id" style="width: 400px; height: 50px;"/>
+            <span id="check_id"></span>
+        </div>
+        <div>
+            <label>Password</label>
+            <input id="new_pw" type="text" name="password" style="width: 400px; height: 50px;"/>
+            <span id="check_pw"></span>
+        </div>
+
+        <div>
+            <label>E-Mail</label>
+            <input id="new_email" type="text" name="email" style="width: 400px; height: 50px;"/>
+            <span id="check_email"></span>
+        </div>
+
+        <button id="save_user">저 장</button>
+    </div>
+
+</div>
+<script th:src="@{/javascript/jquery.min.js}"></script>
+<script th:src="@{/javascript/register.js}"></script>
+</body>
+</html>

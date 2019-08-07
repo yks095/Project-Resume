@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Experienced Projects</title>
+</head>
+<body>
+
+<div class="registerProject">
+
+    <div>
+        <div style="margin-left: 150px">
+            <label>프로젝트 이름</label>
+            <input id="project_name" type="text" name="name" placeholder="The Name Of Project" style="width: 400px; height: 50px;"/>
+        </div>
+        <div>
+            <label>프로젝트 기간</label>
+            <input id="project_period" type="text" name="period" class="text-field" placeholder="Period of Project"/>
+        </div>
+
+        <div>
+            <label>프로젝트 참여 인원</label>
+            <input id="project_persons" type="text" name="persons" class="text-field" placeholder="The number of Participants"/>
+        </div>
+
+        <div>
+            <label>프로젝트 설명</label>
+            <input id="project_description" type="text" name="description" class="text-field" placeholder="Description of Project"/>
+        </div>
+
+        <button id="save_project">저 장</button>
+    </div>
+
+
+</div>
+<script th:src="@{/javascript/jquery.min.js}"></script>
+<script th:src="@{/javascript/project.js}"></script>
+</body>
+</html>

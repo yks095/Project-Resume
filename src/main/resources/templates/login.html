@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<div>
+    <div>
+        <input id="insert_id" type="text" name="id"/>
+        <input id="insert_pw" type="text"name="password"/>
+        <button id="loginButton" type="button">로그인</button>
+    </div>
+    <div>
+        <button id="register_account" type="button">계정을 생성하시겠습니까?</button>
+        <button id="forgot_id" type="button">아이디를 잊어버리셨습니까?</button>
+        <button id="forgot_pw" type="button">비밀번호를 잊어버리셨습니까?</button>
+    </div>
+</div>
+<script th:src="@{/javascript/jquery.min.js}"></script>
+<script th:src="@{/javascript/login.js}"></script>
+</body>
+</html>

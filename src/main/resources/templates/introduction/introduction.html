@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Self-Introduction</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="stylesheet" href="/css/introduction.css"/>
+</head>
+<body>
+<div class="head">
+    <div id="picture">
+        <img id="faceImage" src="/images/face.jpg"/>
+    </div>
+    <div id="info">
+        <div id="name">KiSeok Yang</div>
+        <div id="address"><a href="https://github.com/yks095">Github</a></div>
+    </div>
+</div>
+<div class="Introduction">
+    <button id="register"><a href="/introduction/register">추가</a></button>
+
+    <div id="show_introduction" th:each="introductions : ${introductions_list}">
+        <h1 style="margin-left: 50px" id="introductionTitle" th:text="${introductions.title}" th:value="${introductions.idx}" ></h1>
+        <h3 style="height: 33%;" th:text="${introductions.registeredDate} ? ${#temporals.format(introductions.registeredDate,'yyyy-MM-dd HH:mm')} : ${introductions.registeredDate}"></h3>
+        <button type="button" class="deleteButton" th:value="${introductions.idx}"><img class="deleteImage" src="/images/delete.png"></button>
+        <button type="button" class="lookButton" th:value="${introductions.idx}"><img class="lookImage" src="/images/look.png"></button>
+    </div>
+</div>
+</div>
+
+<script th:src="@{/javascript/jquery.min.js}"></script>
+<script th:src="@{/javascript/introduction.js}"></script>
+</body>
+</html>

@@ -22,22 +22,20 @@ public class ProjectController {
 
     @GetMapping
     public String projectView(Model model) {
-        System.out.println("1");
         model.addAttribute("projects_list", projectService.findProjectList());
 
-        return "/project";
+        return "/project/project";
     }
 
     @GetMapping("/register")
     public String projectRegisterView() {
-        System.out.println("2");
-        return "/registerProject";
+        return "/project/registerProject";
     }
 
     @GetMapping("/look/{idx}")
     public String showProject(Model model, @PathVariable("idx")Long idx)  {
         model.addAttribute("show_project", projectService.findProject(idx));
-        return "/showProject";
+        return "/project/showProject";
     }
 
     @PostMapping("/save")

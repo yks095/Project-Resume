@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Introduction</title>
+    <link rel="stylesheet" href="/css/introduction.css"/>
+
+</head>
+<body>
+
+<div class="registerIntroduction">
+
+    <div>
+        <div style="margin-left: 150px">
+            <label>자기소개서 제목</label>
+            <input id="introduction_title" type="text" name="title" placeholder="The Title Of Introduction" style="width: 400px; height: 50px;"/>
+        </div>
+        <div>
+            <label>성장 배경</label>
+            <input id="introduction_growth" type="text" name="growth" class="text-field" placeholder="Your Growth-Background"/>
+            <span id="growth_counter"></span>
+        </div>
+
+        <div>
+            <label>지원 동기</label>
+            <input id="introduction_reason" type="text" name="reason" class="text-field" placeholder="Your Motivation of Apply"/>
+            <span id="reason_counter"></span>
+        </div>
+
+        <div>
+            <label>강점</label>
+            <input id="introduction_strength" type="text" name="strength" class="text-field" placeholder="Your Strength"/>
+            <span id="strength_counter"></span>
+        </div>
+
+        <div>
+            <label>약점</label>
+            <input id="introduction_weakness" type="text" name="weakness" class="text-field" placeholder="Your Weakness"/>
+            <span id="weakness_counter"></span>
+        </div>
+
+        <div>
+            <label>입사 후 포부</label>
+            <input id="introduction_aspiration" type="text" name="aspiration" class="text-field" placeholder="Your Aspiration after you entered"/>
+            <span id="aspiration_counter"></span>
+        </div>
+
+        <button id="save_introduction">저 장</button>
+    </div>
+
+</div>
+<script th:src="@{/javascript/jquery.min.js}"></script>
+<script th:src="@{/javascript/introduction.js}"></script>
+<script th:src="@{/javascript/counter.js}"></script>
+</body>
+</html>

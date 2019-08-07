@@ -47,12 +47,12 @@ $('.lookButton').click(function () {
 $('.modifyButton').click(function () {
 
     var jsonData = JSON.stringify({
-        title: $(this).parent().parent().find('.show_title').text(),
-        growth: $(this).parent().parent().find('.show_growth').text(),
-        reason: $(this).parent().parent().find('.show_reason').text(),
-        strength: $(this).parent().parent().find('.show_strength').text(),
-        weakness: $(this).parent().parent().find('.show_weakness').text(),
-        aspiration: $(this).parent().parent().find('.show_aspiration').text()
+        title: $(this).parent().parent().find('#show_title').val(),
+        growth: $(this).parent().parent().find('#show_growth').val(),
+        reason: $(this).parent().parent().find('#show_reason').val(),
+        strength: $(this).parent().parent().find('#show_strength').val(),
+        weakness: $(this).parent().parent().find('#show_weakness').val(),
+        aspiration: $(this).parent().parent().find('#show_aspiration').val()
     });
 
     $.ajax({

@@ -31,3 +31,10 @@
 
 `User`
 - 계정 관련 클래스 생성
+
+## 6day (08/07)
+ `showIntroduction.js`
+ - 자기소개서 수정 완료
+ 
+ `Project.java`, `Introduction.java`
+ - idx 관련 문제 해결
